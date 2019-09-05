@@ -25,6 +25,10 @@ class Singleton:
 		file_.write(str(time.strftime("%H:%M:%S", time.localtime()))+","+str(ti)+","+str(te)+","+str(hu)+"\n")
 		file_.close()
 
+@app.route("/")
+def index():
+
+	return "Para hacer el guardado de los datos en el archivo con formato .csv se utilizó Singletón como patrón de diseño, en el cual es este código funciona como centro de guardado, es decir: se crea sólo una clase para guardad todas las posibles entradas que pueden venir de la API creada."
 @app.route("/log", methods=["GET", "POST"])
 def log():
 	ti=request.args.get("time")
