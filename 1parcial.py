@@ -14,10 +14,10 @@ class Singleton:
 	def __init__(self):
 		""" Virtually private constructor. """
 		if Singleton.__instance != None:
-			raise Exception("This class is a singleton!")
+			print("This class is a singleton!")
 		else:
 			Singleton.__instance = self
-	def saveData(ti,te,hu):
+	def saveData(self,ti,te,hu):
 		time_string = time.strftime("%m%d%Y", time.localtime())
 
 		file_=open(time_string+".csv","a")
@@ -27,7 +27,6 @@ class Singleton:
 
 @app.route("/")
 def index():
-
 	return "Para hacer el guardado de los datos en el archivo con formato .csv se utilizó Singletón como patrón de diseño, en el cual es este código funciona como centro de guardado, es decir: se crea sólo una clase para guardad todas las posibles entradas que pueden venir de la API creada."
 @app.route("/log", methods=["GET", "POST"])
 def log():
